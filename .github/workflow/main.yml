@@ -1,0 +1,17 @@
+name: main
+
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  lint_shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+  - name: Clone repository
+    uses: actions/checkout@v4
+  - name: Set up Flutter
+    uses: subosito/flutter-action@v2
+    with:
+      channel: stable
+      flutter-version: 3.19.0
+  - run: flutter --version
